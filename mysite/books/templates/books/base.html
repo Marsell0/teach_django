@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link type="text/css" rel="stylesheet" href="{% static 'books/css/style.css' %}">
+    <title>Title</title>
+</head>
+<body>
+    {% block mainmenu %}
+        {% for el in menu %}
+        <header>
+            <ul class="head">
+                <li><a href="#">{{ el }}</a></li>
+            </ul>
+        </header>
+        {% endfor %}
+    {% endblock mainmenu %}
+
+    {% block content %}
+    {% endblock content %}
+</body>
+</html>

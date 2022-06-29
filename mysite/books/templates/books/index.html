@@ -1,0 +1,16 @@
+{% extends 'books/base.html' %}
+
+{% block content %}
+<h1>Hello!</h1>
+<p>text main page</p>
+
+<ul>
+    {% for el in posts %}
+        <li>
+            <h2>{{ el.title }}</h2>
+            <p class="blog">{{ el.content|linebreaks|truncatewords:50 }}</p>
+            <hr>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}
