@@ -3,6 +3,10 @@ from .views import *
 
 urlpatterns = [
     path('', index, name='home'),
-    path('cats/<slug:cat>/', categories, name='categories'),
+    path('category/<int:cat_id>/', categories, name='category'),
     path('about/', about, name='about'),
+    path('addpage/', addpage, name='addpage'),
+    path('contact/', contact, name='contact'),
+    path('login/', login, name='login'),
+    path('post/<int:post_id>/', show_post, name='post'),
 ]

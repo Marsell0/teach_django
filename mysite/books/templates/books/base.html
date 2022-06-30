@@ -1,21 +1,29 @@
 {% load static %}
+{% load books_tags %}
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
-    <link type="text/css" rel="stylesheet" href="{% static 'books/css/style.css' %}">
-    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <title>{{ title }}</title>
 </head>
 <body>
-    {% block mainmenu %}
         {% for el in menu %}
         <header>
-            <ul class="head">
-                <li><a href="#">{{ el }}</a></li>
+            <ul class="nav center">
+                <li><a href="{% url el.url_name %}">{{ el.title }}</a></li>
             </ul>
         </header>
         {% endfor %}
-    {% endblock mainmenu %}
+
+        <ul>
+            {% if cat_selected == 0 %}
+                <li><p>Все категории</p></li>
+            {% else %}
+                <li><a href="{% url 'home' %}">Все категории</a></li>
+            {% endif %}
+            {% show_cats 'name' cat_selected %}
+        </ul>
 
     {% block content %}
     {% endblock content %}
